@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 .jumbotron{
-	width: 400px;
+	width: 600px;
 	text-align: center;
 	margin-top: 20px;
 	margin-left: auto;
@@ -18,4 +18,12 @@ h3{
 
 .form-control {
 	margin-bottom: 5px;
+}
+
+.selecionado {
+	background-color: #f0da4a;
+}
+
+.negrito {
+	font-weight: bold;
 }
