@@ -12,6 +12,7 @@
 <!-- Angular -->
 <script src="./js/angular.min.js"></script>
 <script src="./js/angular-messages.min.js"></script>
+<script src="./js/angular-locale_pt-br.js"></script>
 
 <!--CSS e JS do projeto-->
 <script src="./js/agenda.js"></script>
@@ -24,20 +25,24 @@
 
 	<div class="jumbotron">
 		<h3>Agenda</h3>
+		
+		<input class="form-control" placeholder="Informe o nome do contato" type="text" ng-model="busca"/>
 
 		<table class="table">
 			<tr>
 				<th></th>
-				<th>Nome</th>
+				<th><a href="" ng-click="ordernarPor('nome')">Nome</th>
 				<th>Telefone</th>
 				<th>Operadora</th>
+				<th>Data</th>
 				<th></th>
 			</tr>
-			<tr ng-class="{'selecionado negrito':contato.selecionado}" ng-repeat="contato in contatos">
+			<tr ng-class="{'selecionado negrito':contato.selecionado}" ng-repeat="contato in contatos | filter:{nome: busca} | orderBy:ordenacao:direcaoDaOrdenacao">
 				<td><input type="checkbox" ng-model="contato.selecionado" /></td>
 				<td>{{contato.nome}}</td>
 				<td>{{contato.telefone}}</td>
-				<td>{{contato.operadora.nome}}</td>
+				<td>{{contato.operadora.nome | lowercase}}</td>
+				<td>{{contato.data | date:'EEE dd/MM/yyyy HH:mm'}}</td>
 				<td>
 					<div style="width:20px; height:20px;" ng-style="{'background-color':contato.cor}">
 
@@ -50,8 +55,8 @@
 		<form name="contatoForm">
 			<input class="form-control" type="text"  placeholder="Nome" ng-model="contato.nome" name="nome" ng-required="true" ng-minlength="5"/>
 			<input class="form-control" type="text"  placeholder="Telefone" ng-model="contato.telefone" name="telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"/>
-			<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome group by operadora.categoria for operadora in operadoras">
-				<<option value="">Selecione a operadora</option>
+			<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + ' (' + (operadora.preco | currency) + ') '  group by operadora.categoria for operadora in operadoras">
+				<option value="">Selecione a operadora</option>
 			</select>
 		</form>
 

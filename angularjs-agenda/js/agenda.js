@@ -8,15 +8,15 @@ angular.module("agendaApp").controller("agendaController", function ($scope){
 	$scope.contato = undefined;
 
 	$scope.contatos = [
-   {nome:"Joao", telefone:"9999-6666", cor:"yellow"},
-   {nome:"Maria", telefone:"9999-8888", cor:"blue"},
-   {nome:"Ana", telefone:"9999-2222", cor:"red"}
+   {nome:"Joao", telefone:"9999-6666", data: new Date(), operadora:{nome: "Oi", codigo:31, categoria: "Celular"}, cor:"yellow"},
+   {nome:"Maria", telefone:"9999-8888", data: new Date(), operadora:{nome: "Vivo", codigo:14, categoria: "Celular"},  cor:"blue"},
+   {nome:"Ana", telefone:"9999-2222", data: new Date(), operadora:{nome: "Tim", codigo:21, categoria: "Fixo"},  cor:"red"}
 	];
 
 	$scope.operadoras = [
-		{nome: "Oi", codigo:31, categoria: "Celular"},
-		{nome: "Vivo", codigo:14, categoria: "Celular"},
-		{nome: "Tim", codigo:21, categoria: "Fixo"}
+		{nome: "Oi", codigo:31, categoria: "Celular", preco:2},
+		{nome: "Vivo", codigo:14, categoria: "Celular", preco:1},
+		{nome: "Tim", codigo:21, categoria: "Fixo", preco:3}
 	];
 
 	$scope.classe1 = "selecionado";
@@ -38,6 +38,11 @@ angular.module("agendaApp").controller("agendaController", function ($scope){
 		return contatos.some(function (contato){
 			return contato.selecionado;
 		});
+	};
+	
+	$scope.ordernarPor = function (campo) {
+		$scope.ordenacao = campo;
+		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
 	};
 
 
