@@ -18,13 +18,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * Servlet implementation class Contatos
  */
 @WebServlet("/contatos")
-public class Contatos extends HttpServlet {
+public class ContatosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Contatos() {
+    public ContatosServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
