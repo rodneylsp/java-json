@@ -52,22 +52,22 @@ public class ContatosServlet extends HttpServlet {
 		 
 		 contatos.add(new Contato("Maria", 
 				 "9999-7777", 
-				 null,
+				 new Date(),
 				 new Operadora(10, "Oi", "Fixo")));
 		 
 		 contatos.add(new Contato("Joao", 
 				 "99999-8888", 
-				 null,
+				 new Date(),
 				 new Operadora(20, "Tim", "Celular")));
 		 
 		 contatos.add(new Contato("Pedro", 
 				 "98888-4444", 
-				 null,
+				 new Date(),
 				 new Operadora(10, "Oi", "Fixo")));
 		 
 		 contatos.add(new Contato("Ana", 
 				 "9741-1234", 
-				 null,
+				 new Date(),
 				 new Operadora(30, "GVT", "Celular")));
 				 
 		 
