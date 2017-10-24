@@ -35,8 +35,16 @@ public class ContatosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 //TODO Auto-generated method stub
 		 //response.getWriter().append("Served at: ").append(request.getContextPath());
-		 //response.setContentType("application/json");
+		 response.setContentType("text/plain");
+		 //response.setCharacterEncoding("UTF-8");
+		 //response.setStatus(200);
 		 
+		 //SOP - same origin policy (politica da mesma origem)
+		 //necessario esse complemento do header para permitir acesso de origens diferentes
+		 response.setHeader("Access-Control-Allow-Origin", "*");
+		 response.setHeader("Access-Control-Allow-Methods", "GET");
+		 response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+		 		 
 		 PrintWriter out = response.getWriter();
 		 
 		 
@@ -44,28 +52,28 @@ public class ContatosServlet extends HttpServlet {
 		 
 		 contatos.add(new Contato("Maria", 
 				 "9999-7777", 
-				 new Date(),
-				 new Operadora("10", "Oi", "Fixo")));
+				 null,
+				 new Operadora(10, "Oi", "Fixo")));
 		 
 		 contatos.add(new Contato("Joao", 
 				 "99999-8888", 
-				 new Date(),
-				 new Operadora("20", "Tim", "Celular")));
+				 null,
+				 new Operadora(20, "Tim", "Celular")));
 		 
 		 contatos.add(new Contato("Pedro", 
 				 "98888-4444", 
-				 new Date(),
-				 new Operadora("10", "Oi", "Fixo")));
+				 null,
+				 new Operadora(10, "Oi", "Fixo")));
 		 
 		 contatos.add(new Contato("Ana", 
 				 "9741-1234", 
-				 new Date(),
-				 new Operadora("30", "GVT", "Celular")));
+				 null,
+				 new Operadora(30, "GVT", "Celular")));
 				 
 		 
 		 ObjectMapper mapper = new ObjectMapper();
 		 
-		 String jsonInString = mapper.writeValueAsString(contatos);
+		 String jsonInString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(contatos);
 		 out.print(jsonInString);
 		 out.flush();
 		 

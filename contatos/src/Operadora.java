@@ -1,24 +1,24 @@
 
 public class Operadora {
 	
-	private String codigo;
+	private Integer codigo;
 	private String nome;
 	private String categoria;
 	
 	
 	public Operadora(){}
 	
-	public Operadora(String codigo, String nome, String categoria) {
+	public Operadora(Integer codigo, String nome, String categoria) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.categoria = categoria;
 	}
 	
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 	public String getNome() {
