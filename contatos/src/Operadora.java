@@ -4,15 +4,17 @@ public class Operadora {
 	private Integer codigo;
 	private String nome;
 	private String categoria;
+	private Integer preco;
 	
 	
 	public Operadora(){}
 	
-	public Operadora(Integer codigo, String nome, String categoria) {
+	public Operadora(Integer codigo, String nome, String categoria, Integer preco) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.categoria = categoria;
+		this.preco = preco;
 	}
 	
 	public Integer getCodigo() {
@@ -33,7 +35,13 @@ public class Operadora {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	
-	
 
+	public Integer getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Integer preco) {
+		this.preco = preco;
+	}
+	
 }
