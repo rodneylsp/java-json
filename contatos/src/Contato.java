@@ -6,6 +6,7 @@ public class Contato {
 	private String telefone;
 	private Date data;
 	private Operadora operadora;
+	private String serial;
 	
 	
 	public Contato(){}
@@ -42,6 +43,13 @@ public class Contato {
 	public void setOperadora(Operadora operadora) {
 		this.operadora = operadora;
 	}
-	
-	
+
+	public String getSerial() {
+		return serial;
+	}
+
+	public void setSerial(String serial) {
+		this.serial = serial;
+	}
+		
 }

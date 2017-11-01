@@ -97,7 +97,7 @@ public class ContatosServlet extends HttpServlet {
 	
 	@Override
 	protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		super.doOptions(req, resp);
 		
 		resp.setHeader("Access-Control-Allow-Origin", "*");
